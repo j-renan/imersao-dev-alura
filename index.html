@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">
+            J-Renanflix
+        </h1>
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo"
+            alt="">
+        <p class="page-subtitle">
+            Qual seu vídeo favorito?
+        </p>
+        <div class="form-wrapper">
+            <input type="text" id="filme" name="filme" placeholder="Insira a tag do YouTube">
+            <button onClick="adicionarFilme()">Adicionar Vídeo</button>
+        </div>
+    </div>
+    <div id="listaFilmes"></div>
+    <a href="https://alura.com.br/" target="_blank">
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+    </a>
+    <embed src="" type="">
+</body>
+</html>
+
+<style>
+    body {
+    font-family: 'Roboto Mono',monospace;
+    text-align:center;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-image: url('https://image.freepik.com/free-vector/hexagonal-technology-pattern-mesh-background-with-text-space_1017-26293.jpg');
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page-title {
+    color: #ffffff;
+    margin: 0 0 5px;
+  }
+  
+  .page-subtitle {
+    color: #ffffff;
+    margin-top: 5px;
+  }
+  
+  .page-logo {
+    width: 200px;
+  }
+  
+  .alura-logo {
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right:10px;
+  }
+  
+  #listaFilmes img {
+    margin: 10px;
+  }
+  
+  .form-wrapper {
+    margin: 0 0 15px;
+  }
+  
+  .form-wrapper input {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 15px;
+  }
+  
+  .form-wrapper button {
+    border: 0;
+    color: #ffffff;
+    background: #DA1E26;
+    font-weight:bold;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .form-wrapper button:hover {
+    opacity:.8;
+  }
+</style>
+
+<script>
+    function adicionarFilme(){
+        let campoFilmeFavorito = document.querySelector('#filme')
+        let filmeFavorito = campoFilmeFavorito.value
+        verificarFilme(filmeFavorito)
+        campoFilmeFavorito.value = ''
+    }
+
+    function verificarFilme(filme) {
+        if (filme.endsWith('embed/', 68)){
+            listarFilmeNaTela(filme)
+        } else {
+            alert("Cagou na URL")
+        }
+    }
+
+    function listarFilmeNaTela(filme){
+      var listaFilmes = document.querySelector('#listaFilmes')
+      var elementoFilme = filme
+      listaFilmes.innerHTML = listaFilmes.innerHTML + elementoFilme
+    }
+</script>
+
